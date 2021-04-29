@@ -110,6 +110,10 @@ logging.warn("still pretty easy");
 </script>
 ```
 
+### React Native
+
+In React Native, it's necessary to re initialise the loggers after React Native has added its console hooks (for the redbox functionality). One way to do this is in the `App` component, either in a constructor or via `useEffect()`, like so: `logger.setLevel(logger.getLevel())`. See [#130](https://github.com/pimterry/loglevel/issues/130) for more.
+
 ### TypeScript:
 
 loglevel includes its own type definitions, assuming you're using a modern module environment (e.g. Node.JS, webpack, etc), you should be able to use the ES6 syntax above, and everything will work immediately. If not, file a bug!
